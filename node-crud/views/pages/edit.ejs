@@ -1,0 +1,58 @@
+<div class="jumbotron text-center">
+    <h1>Editing <%= employee.name %></h1>
+</div>
+
+<div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+
+        <% if (errors.length > 0) { %>
+            <div class="alert alert-danger">
+                <% for (error of errors) { %>
+                    <%= error %><br>
+                <% } %>
+            </div>
+        <% } %>
+        
+        <form action="/employees/<%= employee.slug %>" method="POST">
+
+            <div class="form-group">
+                <label>Name</label>
+                <input type="text" name="name" class="form-control" value="<%= employee.name %>">
+            </div>
+            <div class="form-group">
+                <label>Department</label>
+                <label><%= employee.department %></label>
+                <select class="form-control" name="department">
+                    <option value="Clerical Staff">Clerical Staff</option>
+                    <option value="Support Staff">Support Staff</option>
+                    <option value="Operations Staff">Operations Staff</option>
+                    <option value="Development Staff">Development Staff</option>
+                    <option value="Management Staff">Management Staff</option>
+                    <option value="Logistic Staff">Logistic Staff</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Designation</label>
+                <input type="text" name="designation" class="form-control" value="<%= employee.designation %>">
+            </div>
+            <div class="form-group">
+                <label>Salary</label>
+                <input type="text" name="salary" class="form-control" value="<%= employee.salary %>">
+            </div>
+            <div class="form-group">
+                <label>Current Date of Joining is <%= moment(employee.dateofjoining).format('Do MMMM, YYYY'); %></label>
+                <input type="text" class="form-control" name="dateofjoining" placeholder="Please enter in DD-MM-YYYY format if need to change" value="<%= moment(employee.dateofjoining).format("DD-MM-YYYY") %>">
+            </div>
+            <div class="form-group">
+                <label>City</label>
+                <input type="text" name="city" class="form-control" value="<%= employee.city %>">
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-success btn-lg">Update</button>
+            </div>
+
+        </form>
+
+    </div>
+</div>

@@ -1,0 +1,80 @@
+<div class="jumbotron text-center">
+    <h1>All Employees</h1>
+</div>
+
+<% if (success.length > 0) { %>
+    <div class="alert alert-success"><%= success %></div>
+<% } %>
+
+<table class="table table-bordered table-hover table-striped">
+    <thead>
+        <tr>
+            <th>Employee Name</th>
+            <th>Department</th>
+            <th>Designation</th>
+            <th>Salary</th>
+            <th>Date of Joining</th>
+            <th>City</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        
+        <% for (var employee of employees) { %>
+            <tr>
+                <td><%= employee.name %></td>
+                <td><%= employee.department %></td>
+                <td><%= employee.designation %></td>
+                <td><%= employee.salary %></td>
+                <td><%= moment(employee.dateofjoining).format('Do MMMM, YYYY'); %></td>
+                <td><%= employee.city %></td>
+                <td>
+                    <a href="/employees/<%= employee.slug %>" class="btn btn-sm btn-primary">View</a>
+                    <a href="/employees/<%= employee.slug %>/edit" class="btn btn-sm btn-primary">Edit</a>
+                    <a href="/employees/<%= employee.slug %>/delete" class="btn btn-sm btn-danger">Delete</a>
+                </td>
+            </tr>
+        <% } %>
+
+    </tbody>
+</table>
+
+<div class="container">
+
+    <h3>Find and Display only designation of an Employee</h3>
+
+    <form action="/employees/designationSearch" method="POST">
+        <div class="form-group">
+            <label>Enter Designation</label>
+            <input type="text" name="searchDesignation" class="form-control">
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-lg">Search</button>
+        </div>
+    </form>
+<!-- 
+    <h3>Find and Display the records of employee whose salary is greater than 7000</h3>
+    <a href="/employees" class="btn btn-lg btn-primary">See Employees</a>
+
+    <h3>Sort and Display the records of an employee based on the date of joining</h3>
+    <a href="/employees" class="btn btn-lg btn-primary">See Employees</a>
+
+    <h3>Sort and Display the records of an employee based on the salary in ascending order</h3>
+    <a href="/employees" class="btn btn-lg btn-primary">See Employees</a>
+
+    <h3>Find and Display the records of an employee whose salary in between 5000 to 40000</h3>
+    <a href="/employees" class="btn btn-lg btn-primary">See Employees</a>
+
+    <h3>Find and display all the records of an employee except whose designation is developer.</h3>
+    <a href="/employees" class="btn btn-lg btn-primary">See Employees</a>
+
+    <h3>Sort and display the records of an employee's city in descending order</h3>
+    <a href="/employees" class="btn btn-lg btn-primary">See Employees</a>
+
+    <h3>Find and display the records of an employee's whose city starts with Singapore and salary is greater than 8000</h3>
+    <a href="/employees" class="btn btn-lg btn-primary">See Employees</a>
+
+    <h3>Drop the employee records and display</h3>
+    <a href="/employees" class="btn btn-lg btn-primary">See Employees</a> -->
+
+</div>

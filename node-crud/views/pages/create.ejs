@@ -1,0 +1,51 @@
+<div class="jumbotron text-center">
+    <h1>Create an Employee</h1>
+</div>
+<div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+        <% if (errors.length > 0) { %>
+            <div class="alert alert-danger">
+                <% for (error of errors) { %>
+                    <%= error %>
+                        <br>
+                        <% } %>
+            </div>
+            <% } %>
+                <form action="/employees/create" method="POST">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" name="name" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>Department</label>
+                        <select class="form-control" name="department">
+                            <option value="Clerical Staff">Clerical Staff</option>
+                            <option value="Support Staff">Support Staff</option>
+                            <option value="Operations Staff">Operations Staff</option>
+                            <option value="Development Staff">Development Staff</option>
+                            <option value="Management Staff">Management Staff</option>
+                            <option value="Logistic Staff">Logistic Staff</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Designation</label>
+                        <input type="text" name="designation" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>Salary</label>
+                        <input type="text" name="salary" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>Date of Joining (DD-MM-YYYY)</label>
+                        <input type="text" class="form-control" name="dateofjoining" placeholder="Please enter in DD-MM-YYYY format" value="<%= moment().format("DD-MM-YYYY") %>">
+                    </div>
+                    <div class="form-group">
+                        <label>City</label>
+                        <input type="text" name="city" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-success btn-lg">Create</button>
+                    </div>
+                </form>
+    </div>
+</div>

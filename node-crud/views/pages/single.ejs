@@ -1,0 +1,38 @@
+<% if (success.length > 0) { %>
+    <div class="alert alert-success">
+        <%= success %>
+    </div>
+    <% } %>
+        <div class="jumbotron text-center">
+            <h1><%= employee.name %></h1>
+            <div class="form-inline">
+                <div class="form-group">
+                    <label>Department</label>
+                    <span class="form-control"><%= employee.department %></span>
+                </div>
+            </div>
+            <div class="form-inline">
+                <div class="form-group">
+                    <label>Designation</label>
+                    <span class="form-control"><%= employee.designation %></span>
+                </div>
+            </div>
+            <div class="form-inline">
+                <div class="form-group">
+                    <label>Salary</label>
+                    <span class="form-control"><%= employee.salary %></span>
+                </div>
+            </div>
+            <div class="form-inline">
+                <div class="form-group">
+                    <label>Date of Joining</label>
+                    <span class="form-control"><%= moment(employee.dateofjoining).format('Do MMMM, YYYY'); %></span>
+                </div>
+            </div>
+            <div class="form-inline">
+                <div class="form-group">
+                    <label>City</label>
+                    <span class="form-control"><%= employee.city %></span>
+                </div>
+            </div>
+        </div>
